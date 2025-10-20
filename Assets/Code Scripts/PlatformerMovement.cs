@@ -1,57 +1,128 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public float moveSpeed = 5f;
-    public float jumpSpeed = 5f;
-    bool grounded = false;
-    //where do we want to play the sound
-    AudioSource audioSource;
-    //what sound do we want to play when we jump
-    public AudioClip jumpSound;
-    // Start is called before the first frame update
-    void Start()
+    private float horizontal;
+    private float speed = 8f;
+    private float jumpingPower = 16f;
+    private bool isFacingRight = true;
+
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private LayerMask wallLayer;
+
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        audioSource = Camera.main.GetComponent<AudioSource>();
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        }
+
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+
+        WallSlide();
+        WallJump();
+
+        if (!isWallJumping)
+        {
+            Flip();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        //when we press left or right, move the character left/right
-        float moveX = Input.GetAxis("Horizontal");
-        //maintain the integrety of our Y velocity
-        Vector3 velocity = rb.velocity;
-        velocity.x = moveX * moveSpeed;
-        rb.velocity = velocity;
-        //if you press space AND you're on the ground, jump the character
-        if(Input.GetButtonDown("Jump") && grounded)
+        if (!isWallJumping)
         {
-            //play my jump sound
-            if(audioSource != null && jumpSound != null)
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !IsGrounded() && horizontal != 0f)
+        {
+            isWallSliding = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (transform.localScale.x != wallJumpingDirection)
             {
-                //play the jump sound
-                audioSource.PlayOneShot(jumpSound);
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
             }
-            rb.AddForce(new Vector2(0, 100 * jumpSpeed));
+
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void StopWallJumping()
     {
-        if(collision.gameObject.tag == "Ground")
-        { 
-            grounded = true;
-        }
+        isWallJumping = false;
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void Flip()
     {
-        if(collision.gameObject.tag == "Ground")
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            grounded = false;
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 }
