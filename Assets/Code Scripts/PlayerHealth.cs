@@ -18,11 +18,12 @@ public class PlayerHealth : MonoBehaviour
     //if we collide with something tagged as enemy, take damage
     //if health gets too low, we die (reload the level)
     //if we collide with something tagged as health pack, increase health
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy" && Timer > 1f)
         {
-            if(audioSource != null && hitSound != null)
+            if (audioSource != null && hitSound != null)
             {
                 //play the jump sound
                 audioSource.PlayOneShot(hitSound);

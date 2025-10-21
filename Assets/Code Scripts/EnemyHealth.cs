@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject prefab;
     float timer = 0;
     public float flashRed = 0.1f;
+    public float knockbackStrength = 10f;
     //where do we want to play the sound
     AudioSource audioSource;
     //what sound do we want to play when we jump
@@ -28,12 +29,23 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
-
+    void ApplyKnockback(Transform collisionTransform)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            Vector2 knockbackDirection = (transform.position - collisionTransform.position).normalized;
+            rb.AddForce(knockbackDirection * knockbackStrength, ForceMode2D.Impulse);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         //when I am hit by a player bullet
         if (collision.gameObject.tag == "PlayerBullet")
         {
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            ApplyKnockback(collision.transform);
             //play my jump sound
             if (audioSource != null && hitSound != null)
             {

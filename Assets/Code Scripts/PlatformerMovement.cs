@@ -5,9 +5,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Basic Movement")]
     public float speed = 8f;
     public float jumpingPower = 16f;
+    public float bouncingPower = 32;
     public int MaxJumpCount = 1;
-  
+    public float accelerationRate = 5f;
+    public float maxSpeedX = 10f;
+
     private float horizontal;
+
     private bool isFacingRight = true;
    
     private int jumpCount = 0;
@@ -30,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -46,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (IsGrounded())
         {
-            jumpCount =0;
+            jumpCount = 0;
         }
         WallSlide();
         WallJump();
@@ -62,6 +70,24 @@ public class PlayerMovement : MonoBehaviour
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+            Vector2 currentVelocity = rb.velocity;
+
+            // Gradually increase the X-component towards maxSpeedX
+            // You can adjust the direction (e.g., Input.GetAxis("Horizontal") for player input)
+            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, maxSpeedX, accelerationRate * Time.fixedDeltaTime);
+
+            // Apply the modified velocity back to the Rigidbody2D
+            rb.velocity = currentVelocity;
+
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Trampoline")
+        {
+            rb.velocity = new Vector2(rb.velocity.x, bouncingPower);
         }
     }
 

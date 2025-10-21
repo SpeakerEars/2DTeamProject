@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - HealthPack
   - Enemy
+  - Tightrope
+  - Trampoline
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
