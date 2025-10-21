@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Basic Movement")]
+    public float speed = 8f;
+    public float jumpingPower = 16f;
+    public int MaxJumpCount = 1;
+  
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
     private bool isFacingRight = true;
-
+   
+    private int jumpCount = 0;
+    
+    [Header("Wall Customization")]
+    public float wallSlidingSpeed = 2f;
+    public float wallJumpingDuration = 0.4f;
+    public float wallJumpingTime = 0.2f;
+    
     private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
-
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
+   
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
     [SerializeField] private Rigidbody2D rb;
@@ -27,8 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && jumpCount < MaxJumpCount)
         {
+            jumpCount++;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -36,7 +44,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
+        if (IsGrounded())
+        {
+            jumpCount =0;
+        }
         WallSlide();
         WallJump();
 
