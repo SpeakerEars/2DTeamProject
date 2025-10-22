@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Image healthBar;
     float Timer = 0;
     public float flashRed = 0.1f;
+    public GameObject newCanvasGameObject; // Drag your new Canvas GameObject here in the Inspector
     //where do we want to play the sound
     AudioSource audioSource;
     //what sound do we want to play when we jump
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0f)
             {
                 //if health is too low, reload the level
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                newCanvasGameObject.SetActive(true); //activate a new canvas (whatever you select)
             }
         }
         //if we collide with the health pack collectable

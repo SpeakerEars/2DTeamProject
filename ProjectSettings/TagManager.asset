@@ -10,6 +10,7 @@ TagManager:
   - Tightrope
   - Trampoline
   - PlayerBullet
+  - Boss
   layers:
   - Default
   - TransparentFX
