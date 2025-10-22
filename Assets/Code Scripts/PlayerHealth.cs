@@ -60,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = health;
         healthBar.fillAmount = health / maxHealth;
         audioSource = Camera.main.GetComponent<AudioSource>();
+        newCanvasGameObject.SetActive(false);
     }
 
     // Update is called once per frame
