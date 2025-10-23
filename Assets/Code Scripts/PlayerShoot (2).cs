@@ -5,16 +5,22 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject prefab;
+    public GameObject prefab2;
     public float shootSpeed = 10f;
     public float bulletLifetime = 2f;
     public float shootDelay = 0.5f;
+    public float SpecialCharge = 15f;
     float timer = 0;
+    float timer2 = 0;
     public AudioClip slashSound;
     AudioSource audioSource;
+    private Rigidbody rb;
+    
     // Start is called before the first frame update
     void Start()
     {
         audioSource = Camera.main.GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,6 +31,7 @@ public class PlayerShoot : MonoBehaviour
         //Time.deltaTime is the change/difference of time between frame updates
         //60 frames/second, 1/60 = 0.0166666s every frame
         timer += Time.deltaTime;
+        timer2 += Time.deltaTime;
         //if we press the "shoot button" (left click) and enough time has passed
         if (Input.GetButton("Fire1") && timer > shootDelay)
         {
@@ -51,6 +58,17 @@ public class PlayerShoot : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = mouseDir * shootSpeed;
             Destroy(bullet, bulletLifetime);
             //play my jump sound
+        }
+        if (Input.GetButtonDown("Fire2") && timer > SpecialCharge)
+        {
+            timer = 0;
+            GameObject bullet = Instantiate(prefab2, transform.position, Quaternion.identity);
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+            if (timer > bulletLifetime)
+            {
+                rb.constraints = RigidbodyConstraints.None;
+                Destroy(bullet);
+            }
         }
     }
 }

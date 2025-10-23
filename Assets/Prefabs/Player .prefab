@@ -68,7 +68,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -349,7 +349,7 @@ MonoBehaviour:
   health: 10
   healthBar: {fileID: 0}
   flashRed: 0.1
-  newCanvasGameObject: {fileID: 4645703713606707799, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+  newCanvasGameObject: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!114 &5635483806761634386
 MonoBehaviour:
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6657242570123417640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 939ec1b995fd7544198b2f67199abb98, type: 3}
   m_Name: 

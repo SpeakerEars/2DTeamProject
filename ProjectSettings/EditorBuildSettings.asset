@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win Slideshow.unity
     guid: ebe5a69e979a72941ac4b3fdb8cba04c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 47203397f340665459554542366324db
   m_configObjects: {}

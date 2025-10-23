@@ -79,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
             // Apply the modified velocity back to the Rigidbody2D
             rb.velocity = currentVelocity;
-
         }
     }
 
