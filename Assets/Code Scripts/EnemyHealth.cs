@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int dropChance = 100;
     public GameObject prefab;
     float timer = 0;
+    float timer2 = 1000000f;
     public float flashRed = 0.1f;
     public float knockbackStrength = 10f;
     //where do we want to play the sound
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        timer2 -= Time.deltaTime;
         if (timer > flashRed)
         {
             GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -73,6 +75,38 @@ public class EnemyHealth : MonoBehaviour
                 }
             }
             
+        }
+        if (collision.gameObject.tag == "PlayerSpecial")
+        {
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            ApplyKnockback(collision.transform);
+            //play my jump sound
+            if (audioSource != null && hitSound != null)
+            {
+                //play the jump sound
+                audioSource.PlayOneShot(hitSound);
+            }
+            //destroy the bullet
+            Destroy(collision.gameObject);
+            //reduce my hp
+            health--;
+            //turn red for a short amount of time
+            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            timer = 0;
+            timer2 = 3;
+            if (timer2 < 0) 
+            {
+                timer2 = 3;
+                health--;
+                if (audioSource != null && hitSound != null)
+                {
+                    //play the jump sound
+                    audioSource.PlayOneShot(hitSound);
+                }
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                timer = 0;
+            }
+            //destroy myself if I get too low in health
         }
     }
 }

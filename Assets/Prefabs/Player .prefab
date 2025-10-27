@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 7303668611791415325}
   - component: {fileID: 1025492483450253493}
   - component: {fileID: 4629037144358486875}
+  - component: {fileID: 3198938524237672539}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -427,10 +428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d4eea7c54c3c34e9dda165c7a25c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4284202893027240221, guid: 769f5a024a269474396d1db01c00b6a7, type: 3}
+  prefab2: {fileID: 7275748018752776241, guid: 06fac44b199bc584d8b6a92232feae21, type: 3}
   shootSpeed: 10
   bulletLifetime: 2
   shootDelay: 0.5
+  SpecialCharge: 3
   slashSound: {fileID: 0}
 --- !u!114 &4629037144358486875
 MonoBehaviour:
@@ -445,6 +448,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2196561801859643098, guid: d6ce8bda0dbde6c4dbd6348d4bb7fc7e, type: 3}
+--- !u!114 &3198938524237672539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657242570123417640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5ab2b986d4e524387150d4e3b856c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CircusFront: {fileID: 0}
+  CircusSprite: {fileID: 0}
 --- !u!1 &7024055218276982506
 GameObject:
   m_ObjectHideFlags: 0

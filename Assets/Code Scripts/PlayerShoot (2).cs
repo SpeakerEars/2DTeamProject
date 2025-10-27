@@ -62,12 +62,12 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && timer > SpecialCharge)
         {
             timer = 0;
-            GameObject bullet = Instantiate(prefab2, transform.position, Quaternion.identity);
+            GameObject Prefab2 = Instantiate(prefab2, transform.position, Quaternion.identity);
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
             if (timer > bulletLifetime)
             {
                 rb.constraints = RigidbodyConstraints.None;
-                Destroy(bullet);
+                Destroy(prefab2, bulletLifetime);
             }
         }
     }

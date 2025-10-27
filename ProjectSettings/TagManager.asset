@@ -11,6 +11,10 @@ TagManager:
   - Trampoline
   - PlayerBullet
   - Boss
+  - PlayerSpecial
+  - Trigger1
+  - Trigger2
+  - Opacity effect
   layers:
   - Default
   - TransparentFX

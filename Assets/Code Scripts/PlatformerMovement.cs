@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public int MaxJumpCount = 1;
     public float accelerationRate = 5f;
     public float maxSpeedX = 10f;
+    float timer2;
 
     private float horizontal;
 
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        timer2 += Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && jumpCount < MaxJumpCount)
