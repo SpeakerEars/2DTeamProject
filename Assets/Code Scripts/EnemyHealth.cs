@@ -31,23 +31,13 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
-    void ApplyKnockback(Transform collisionTransform)
-    {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            Vector2 knockbackDirection = (transform.position - collisionTransform.position).normalized;
-            rb.AddForce(knockbackDirection * knockbackStrength, ForceMode2D.Impulse);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
         //when I am hit by a player bullet
         if (collision.gameObject.tag == "PlayerBullet")
         {
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            ApplyKnockback(collision.transform);
+          
             //play my jump sound
             if (audioSource != null && hitSound != null)
             {
@@ -64,49 +54,19 @@ public class EnemyHealth : MonoBehaviour
             //destroy myself if I get too low in health
             if (health <= 0)
             {
+                Instantiate(prefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+                
                 //create a random variable to determine if we should drop an item or not
                 //maximum of Random.Range is exclusive, so we have to add +1
-                int r = Random.Range(1, 101); //give a random variable between 1 and 100
-                if (dropChance >= r)
-                {
-                    //drop an item!
-                    Instantiate(prefab, transform.position, Quaternion.identity);
-                }
+                //int r = Random.Range(1, 101); //give a random variable between 1 and 100
+                //if (dropChance >= r)
+
+                //drop an item!
+                //Instantiate(prefab, transform.position, Quaternion.identity);
+
             }
             
-        }
-        if (collision.gameObject.tag == "PlayerSpecial")
-        {
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            ApplyKnockback(collision.transform);
-            //play my jump sound
-            if (audioSource != null && hitSound != null)
-            {
-                //play the jump sound
-                audioSource.PlayOneShot(hitSound);
-            }
-            //destroy the bullet
-            Destroy(collision.gameObject);
-            //reduce my hp
-            health--;
-            //turn red for a short amount of time
-            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-            timer = 0;
-            timer2 = 3;
-            if (timer2 < 0) 
-            {
-                timer2 = 3;
-                health--;
-                if (audioSource != null && hitSound != null)
-                {
-                    //play the jump sound
-                    audioSource.PlayOneShot(hitSound);
-                }
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-                timer = 0;
-            }
-            //destroy myself if I get too low in health
         }
     }
 }
