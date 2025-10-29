@@ -7,7 +7,7 @@ public class EnemyAnim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,8 +19,8 @@ public class EnemyAnim : MonoBehaviour
         GetComponent<Animator>().SetFloat("y", moveY);
         if (moveX < 0)
         {
-            //we're moving to the left
-            //flip our sprite to the left
+            //we're moving to the left 
+            //flip the sprit 
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (moveX > 0)
