@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   dropChance: 100
-  prefab: {fileID: 0}
+  prefab: {fileID: 4686253915888538172, guid: 33b627282ba48ac49a2323d3a1f4b218, type: 3}
   flashRed: 0.1
   knockbackStrength: 10
   hitSound: {fileID: 0}

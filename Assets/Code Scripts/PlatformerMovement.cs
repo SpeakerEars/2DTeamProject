@@ -18,9 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCount = 0;
     
     [Header("Wall Customization")]
-    public float wallSlidingSpeed = 2f;
-    public float wallJumpingDuration = 0.4f;
-    public float wallJumpingTime = 0.2f;
+    public float wallSlidingSpeed = 1.5f;
+    public float wallJumpingDuration = 0.6f;
+    public float wallJumpingTime = 0.4f;
     
     private bool isWallSliding;
     private bool isWallJumping;
@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isWallJumping)
         {
+            jumpCount = 0;
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
             Vector2 currentVelocity = rb.velocity;
