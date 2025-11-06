@@ -11,6 +11,7 @@ public class PlayerSpeedChecker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         playerRigidbody = GetComponent<Rigidbody2D>();
         if (playerRigidbody == null)
         {

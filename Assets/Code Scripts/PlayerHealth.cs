@@ -40,6 +40,17 @@ public class PlayerHealth : MonoBehaviour
                 newCanvasGameObject.SetActive(true); //activate a new canvas (whatever you select)
                 Time.timeScale = 0f;                    
             }
+            
+        }
+        if (collision.gameObject.tag == "DeathScreenTrigger")
+        {
+            health = 0;
+            if (health <= 0f)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                newCanvasGameObject.SetActive(true); //activate a new canvas (whatever you select)
+                Time.timeScale = 0f;
+            }
         }
         //if we collide with the health pack collectable
         if(collision.gameObject.tag == "HealthPack")

@@ -15,6 +15,7 @@ TagManager:
   - Trigger1
   - Trigger2
   - Opacity effect
+  - DeathScreenTrigger
   layers:
   - Default
   - TransparentFX
