@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Basic Movement")]
     public float speed = 8f;
     public float jumpingPower = 16f;
-    public float bouncingPower = 32;
     public int MaxJumpCount = 1;
     public float accelerationRate = 5f;
     public float maxSpeedX = 10f;
@@ -71,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isWallJumping)
         {
-            jumpCount = 0;
+
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
             Vector2 currentVelocity = rb.velocity;
@@ -85,13 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Trampoline")
-        {
-            rb.velocity = new Vector2(rb.velocity.x, bouncingPower);
-        }
-    }
+   
 
     private bool IsGrounded()
     {
@@ -107,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
         {
+            jumpCount = 0;
             isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
