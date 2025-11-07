@@ -19,14 +19,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Wall Customization")]
     public float wallSlidingSpeed = 1.5f;
     public float wallJumpingDuration = 0.6f;
-    public float wallJumpingTime = 0.4f;
+    public float wallJumpingTime = 0.8f;
     
     private bool isWallSliding;
     private bool isWallJumping;
     private float wallJumpingDirection;
     private float wallJumpingCounter;
    
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpingPower = new Vector2(6f, 16f);
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
