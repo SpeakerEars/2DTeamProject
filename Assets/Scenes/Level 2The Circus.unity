@@ -60540,6 +60540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Death Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 4645703713606707799, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4889454551721674081, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
