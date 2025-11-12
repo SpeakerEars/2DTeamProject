@@ -17,13 +17,13 @@ public class SpearAnim : MonoBehaviour
         float moveY = GetComponent<Rigidbody2D>().velocity.y;
         GetComponent<Animator>().SetFloat("x", moveX);
         GetComponent<Animator>().SetFloat("y", moveY);
-        if (moveX < 0)
+        if (moveX > 0)
         {
             //we're moving to the left 
             //flip the sprit 
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (moveX > 0)
+        else if (moveX < 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
