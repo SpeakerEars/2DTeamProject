@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1428891300751923838}
   - component: {fileID: 2606638404979687416}
   - component: {fileID: 7523617210350469987}
-  - component: {fileID: 3576110101258926705}
+  - component: {fileID: 9064138724264119628}
   m_Layer: 0
   m_Name: bullet
   m_TagString: PlayerBullet
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -570417155, guid: 2710162002565a541adb23735df6bcc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.001995176, y: -0.005985409}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3870554, y: 0.45333403}
   m_EdgeRadius: 0
 --- !u!50 &2606638404979687416
 Rigidbody2D:
@@ -181,7 +181,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3576110101258926705
+--- !u!114 &9064138724264119628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,6 +190,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4284202893027240221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8203568a726c8274493e2dc947de54e1, type: 3}
+  m_Script: {fileID: 11500000, guid: cb4720e66a36e6d4aa66fdd283886cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
