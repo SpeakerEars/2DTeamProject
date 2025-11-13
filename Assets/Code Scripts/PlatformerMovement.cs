@@ -15,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
    
     private int jumpCount = 0;
-    
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    AudioSource audioSource;
+
     [Header("Wall Customization")]
     public float wallSlidingSpeed = 1.5f;
     public float wallJumpingDuration = 0.6f;
@@ -36,15 +39,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        
+        audioSource = Camera.main.GetComponent<AudioSource>();
     }
     private void Update()
     {
         timer2 += Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
+        if (horizontal == Input.GetAxisRaw("Horizontal"))
+        {
+            audioSource.PlayOneShot(walkSound);
+        }
 
         if (Input.GetButtonDown("Jump") && jumpCount < MaxJumpCount)
         {
+            if (audioSource != null && jumpSound != null)
+            {
+                //play the jump sound
+                audioSource.PlayOneShot(jumpSound);
+            }
             jumpCount++;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
@@ -127,6 +139,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
+            if (audioSource != null && jumpSound != null)
+            {
+                //play the jump sound
+                audioSource.PlayOneShot(jumpSound);
+            }
             isWallJumping = true;
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
