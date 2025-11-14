@@ -60964,6 +60964,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6961968949401217853, guid: a8eb5b4b6fa7abf4eb4446bdde53b455, type: 3}
+      propertyPath: wallJumpingTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961968949401217853, guid: a8eb5b4b6fa7abf4eb4446bdde53b455, type: 3}
       propertyPath: wallLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}

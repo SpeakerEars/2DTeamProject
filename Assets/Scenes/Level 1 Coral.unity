@@ -170142,6 +170142,10 @@ PrefabInstance:
       propertyPath: jumpingPower
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6961968949401217853, guid: a8eb5b4b6fa7abf4eb4446bdde53b455, type: 3}
+      propertyPath: wallJumpingTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7303668611791415325, guid: a8eb5b4b6fa7abf4eb4446bdde53b455, type: 3}
       propertyPath: m_Enabled
       value: 0
