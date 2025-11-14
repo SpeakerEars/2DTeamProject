@@ -67,6 +67,52 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Boss" && Timer > 1f)
+        {
+            if (audioSource != null && hitSound != null)
+            {
+                //play the jump sound
+                audioSource.PlayOneShot(hitSound);
+            }
+            Timer = 0;
+            health--;
+            healthBar.fillAmount = health / maxHealth;
+            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            if (health <= 0f)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                newCanvasGameObject.SetActive(true); //activate a new canvas (whatever you select)
+                Time.timeScale = 0f;
+            }
+
+        }
+        if (collision.gameObject.tag == "DeathScreenTrigger")
+        {
+            health = 0;
+            if (health <= 0f)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                newCanvasGameObject.SetActive(true); //activate a new canvas (whatever you select)
+                Time.timeScale = 0f;
+            }
+        }
+        //if we collide with the health pack collectable
+        if (collision.gameObject.tag == "HealthPack")
+        {
+            //increase the health value
+            health++;
+            healthBar.fillAmount = health / maxHealth;
+            Destroy(collision.gameObject);
+            //if our health is trying to exceed our max health
+            if (health > maxHealth)
+            {
+                //cap our health at max health
+                health = maxHealth;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
