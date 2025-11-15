@@ -26,10 +26,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
     guid: 88cf55d37487abe4fb4b6db7a08d148b
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Win Slideshow.unity
     guid: ebe5a69e979a72941ac4b3fdb8cba04c
+  - enabled: 1
+    path: Assets/Scenes/secret 1.unity
+    guid: 8e3081f840fa99b44a00bb36e6e92283
+  - enabled: 1
+    path: Assets/Scenes/secret 2.unity
+    guid: d576fd5d7f88fd24085eafbd9d40d35d
+  - enabled: 1
+    path: Assets/Scenes/secret 3.unity
+    guid: bb666d16a0a9892419de7e54fd574dac
+  - enabled: 1
+    path: Assets/Scenes/secret 4.unity
+    guid: 7823c23645045d74ab81ab4f51f450fa
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
