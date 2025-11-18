@@ -668,6 +668,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4040006506745466638, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -51943,6 +51955,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7560233561107724365, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
       propertyPath: m_Name
       value: Pause Menu
@@ -61864,6 +61888,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8880643014923205303, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
       propertyPath: m_Color.b
       value: 0.2924528
@@ -62510,7 +62546,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -22861594, guid: 40b9656122967be4cac1e43c6d126d28, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

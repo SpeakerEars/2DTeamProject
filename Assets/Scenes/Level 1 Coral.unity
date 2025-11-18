@@ -160,6 +160,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446838132552281502, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4040006506745466638, guid: 9dcb721ba0b6dff4da0874da4032f022, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -117314,6 +117326,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 74, y: 9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 29
+      m_TileSpriteIndex: 29
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 13
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 127, y: 9, z: 0}
     second:
       serializedVersion: 2
@@ -168994,6 +169016,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 12453ea78925f8e4c91dad3b255b3110, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: b6c4ab7d3acd3f7409ae9bb73cd2ebf1, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 573ce500d36f98841841801f44670c48, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 20
     m_Data: {fileID: 773731124, guid: 341653b26d3f9f64b951cafa02fe063c, type: 3}
@@ -169053,8 +169077,10 @@ Tilemap:
     m_Data: {fileID: -1683343721, guid: 341653b26d3f9f64b951cafa02fe063c, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -168269554, guid: 013250f7136f86244b5135c4bc7de8a4, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1477877432, guid: 013250f7136f86244b5135c4bc7de8a4, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 10949
+  - m_RefCount: 10950
     m_Data:
       e00: 1
       e01: 0
@@ -169135,7 +169161,7 @@ Tilemap:
     m_Data: {r: 4.2571e-41, g: 4.2571e-41, b: 4.2571e-41, a: 4.2571e-41}
   - m_RefCount: 0
     m_Data: {r: 4.2571e-41, g: 4.2571e-41, b: 4.2571e-41, a: 4.2571e-41}
-  - m_RefCount: 10949
+  - m_RefCount: 10950
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -169502,6 +169528,22 @@ CompositeCollider2D:
         Y: -240000000
       - X: 1690000000
         Y: -240000000
+    - - X: 750000000
+        Y: 92031248
+      - X: 749062528
+        Y: 92968752
+      - X: 746406272
+        Y: 94531248
+      - X: 744218752
+        Y: 94531248
+      - X: 741249984
+        Y: 93437504
+      - X: 740000000
+        Y: 92031248
+      - X: 740000000
+        Y: 90000000
+      - X: 750000000
+        Y: 90000000
     - - X: 714531264
         Y: 13125000
       - X: 714531264
@@ -169660,6 +169702,14 @@ CompositeCollider2D:
       - {x: 127.312485, y: 19.999996}
       - {x: 127, y: 19.796862}
       - {x: 127.00003, y: -24}
+    - - {x: 74.99997, y: 9}
+      - {x: 74.99999, y: 9.203133}
+      - {x: 74.90625, y: 9.296877}
+      - {x: 74.640625, y: 9.453125}
+      - {x: 74.42187, y: 9.453123}
+      - {x: 74.12499, y: 9.343746}
+      - {x: 74, y: 9.203115}
+      - {x: 74.00003, y: 9}
     - - {x: 71.26562, y: 1}
       - {x: 71.453125, y: 1.3125069}
       - {x: 71.45312, y: 1.9531314}
@@ -169966,6 +170016,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184782158475038778, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7560233561107724365, guid: aed4bfe90a7837240afcd1d34b97aa6c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -169992,12 +170054,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4620086609430837112, guid: e97d6dafaea672b43b129584978d254e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.7344446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620086609430837112, guid: e97d6dafaea672b43b129584978d254e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.0064487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620086609430837112, guid: e97d6dafaea672b43b129584978d254e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 365.3
+      value: 365.9971
       objectReference: {fileID: 0}
     - target: {fileID: 4620086609430837112, guid: e97d6dafaea672b43b129584978d254e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.4
+      value: 42.4032
       objectReference: {fileID: 0}
     - target: {fileID: 4620086609430837112, guid: e97d6dafaea672b43b129584978d254e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -170284,6 +170354,18 @@ PrefabInstance:
     - target: {fileID: 4889454551721674081, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140990960860274445, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8880643014923205303, guid: b5d4da383f47df44bb968610a8a6750f, type: 3}
       propertyPath: m_Color.b
